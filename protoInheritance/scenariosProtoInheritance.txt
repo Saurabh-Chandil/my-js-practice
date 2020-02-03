@@ -1,0 +1,35 @@
+
+
+
+################## Check all using jonas youtube video - https://www.youtube.com/watch?v=3AKh0-PDsMw ##################
+
+# Scenario 1
+Use Object.create(parent) - If we are not putting any method in prototype of parent function then it's prototype will 
+always be default empty constructor. Creating child using Object.create(parent) will make the prototype of child same 
+as that of prototype of parent i.e., empty default constructor.
+
+We are putting one function in parent then that function can easily be called by child provided we have NOT PUT that 
+function in prototype of parent.
+
+# Scenario 2
+Use Object.create(null) - then child can't access any of the properties of parent and its prototype will also be 'undefined'.
+
+# Scenario 3
+Use Object.create(parent) & put function in prototype of parent - Both parent and child will get that function in 
+parent.prototype and child.prototype. Now while accessing the parent function using child object we have to use
+child.prototype.parentFuncName() if parent function is in prototype of parent while use child.parentFuncName if it is simple parent function.
+
+# Scenario 4 
+Use Object.create(parent.prototype) - If we are putting parent's prototype while creating child object then we can 
+only access functions attached to prototype of parent provided not using child.prototype.parentFuncName as now we are directly putting 
+prototype of parent to object of child so simple child.parentFuncName will work.
+
+NO simple function of parent then can not be accessed by child. Child prototype will be 'undefined'.
+
+# Scenario 5
+function Tommy() {
+    console.log('This is tommy');
+}
+Tommy.prototype = Object.create(Dog.prototype); // Put null, Dog, Dog.prototype to check results of consoles.
+console.log('Tommy : ',  Tommy);
+console.log('Tommy Prototype : ',  Tommy.prototype);
