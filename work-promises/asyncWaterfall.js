@@ -3,7 +3,7 @@ async.waterfall([
   (done) => {
     console.log('start!');
 
-    done(null, 'Value from step 1'); // <- set value to passed to step 2
+    done(null, 'Value from step 1'); // <- set value to passed to step 2.
   },
   (step1Result, done) =>{
     console.log(step1Result);

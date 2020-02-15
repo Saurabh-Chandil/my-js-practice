@@ -1,4 +1,4 @@
-// Understanding promises
+// Understanding promises.
 
 function gatherHardware() {
     console.log('Gather hadware');
